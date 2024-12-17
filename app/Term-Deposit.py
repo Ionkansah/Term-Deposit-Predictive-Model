@@ -158,3 +158,5 @@ if pred_button:
     prediction = "Yes" if duration > 200 else "No"
     st.write(f"Predicted Term Deposit Subscription: **{prediction}**")
 
+# Footer
+st.write("Developed with ❤️ by ISAAC OPOKU NKANSAH (ION)")
