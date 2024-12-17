@@ -27,6 +27,19 @@ The dataset contains:
 The problem is a **binary classification** task that determines the likelihood of subscription based on the given features. Accurately predicting this outcome enables targeted marketing strategies, saving time and resources.
 """)
 
+# Visual 1: Age Distribution
+st.subheader("Distribution of Client Ages")
+fig1, ax1 = plt.subplots()
+sns.histplot(data['age'], bins=20, kde=True, ax=ax1)
+st.pyplot(fig1)  # Display plot in Streamlit
+
+# Visual 2: Job Count vs Subscription
+st.subheader("Subscription Status by Job Type")
+fig2, ax2 = plt.subplots()
+sns.countplot(x='job', hue='y', data=data, ax=ax2)
+plt.xticks(rotation=45)  # Rotate x-axis labels for readability
+st.pyplot(fig2)  # Display plot in Streamlit
+
 # EDA Section
 st.subheader("Exploratory Data Analysis")
 if st.checkbox("Show Dataset"):
