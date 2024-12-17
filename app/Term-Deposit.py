@@ -14,6 +14,18 @@ st.markdown("""
 ### Introduction
 This project predicts the likelihood of a client subscribing to a term deposit based on key features. 
 The analysis explores the data, builds predictive models, and provides information for decision.
+
+## Overview of the Dataset and Problem Statement
+The dataset contains information about **bank marketing campaigns** conducted by a banking institution.  
+The goal is to **predict whether a client will subscribe to a term deposit** based on client features, previous contacts, and campaign-related data.
+
+The dataset contains:
+- **Numeric Features**: Age, balance, duration, campaign count, etc.
+- **Categorical Features**: Job, marital status, education, contact type, etc.
+- **Target Variable**: 'y' (1: Subscription, 0: No Subscription)
+
+The problem is a **binary classification** task that determines the likelihood of subscription based on the given features.  
+Accurately predicting this outcome enables targeted marketing strategies, saving time and resources.
 """)
 
 # EDA Section
