@@ -15,7 +15,7 @@ st.markdown("""
 This project predicts the likelihood of a client subscribing to a term deposit based on key features. 
 The analysis explores the data, builds predictive models, and provides information for decision.
 
-## Overview of the Dataset and Problem Statement
+### Overview of the Dataset and Problem Statement
 The dataset contains information about **bank marketing campaigns** conducted by a banking institution.  
 The goal is to **predict whether a client will subscribe to a term deposit** based on client features, previous contacts, and campaign-related data.
 
