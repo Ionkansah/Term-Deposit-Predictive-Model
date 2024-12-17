@@ -99,25 +99,25 @@ The following metrics were computed for the model's performance:
 
 from sklearn.metrics import classification_report
 
-# Mock classification report data (from earlier output)
+# Mock classification report data
 report_data = {
     "Class": ["No Subscription (0)", "Subscription (1)", "Accuracy", "Macro Avg", "Weighted Avg"],
-    "Precision": [0.94, 0.66, "-", 0.80, 0.90],
-    "Recall": [0.97, 0.48, "-", 0.73, 0.91],
-    "F1-Score": [0.95, 0.56, "-", 0.75, 0.91],
+    "Precision": [0.94, 0.66, np.nan, 0.80, 0.90],
+    "Recall": [0.97, 0.48, np.nan, 0.73, 0.91],
+    "F1-Score": [0.95, 0.56, np.nan, 0.75, 0.91],
     "Support": [7303, 935, 8238, 8238, 8238]
 }
 
 # Convert to DataFrame
 report_df = pd.DataFrame(report_data)
 
-# Display in Streamlit
+# Style and display the DataFrame in Streamlit
 st.subheader("Classification Report")
 st.dataframe(report_df.style.format({
-    "Precision": "{:.2f}",
-    "Recall": "{:.2f}",
-    "F1-Score": "{:.2f}",
-    "Support": "{:.0f}"
+    "Precision": lambda x: f"{x:.2f}" if not pd.isna(x) else "-",
+    "Recall": lambda x: f"{x:.2f}" if not pd.isna(x) else "-",
+    "F1-Score": lambda x: f"{x:.2f}" if not pd.isna(x) else "-",
+    "Support": lambda x: f"{int(x)}" if not pd.isna(x) else "-"
 }))
 
 # Insights Section
