@@ -9,7 +9,7 @@ import numpy as np
 data = pd.read_csv('data/bank-additional-full.csv', sep=';')
 
 # Title and Introduction
-st.title("Term Deposit Subscription Prediction by Isaac Opoku")
+st.title("Bank Term Deposit Subscription Prediction by ION")
 st.markdown("""
 ### Introduction
 This project predicts the likelihood of a client subscribing to a term deposit based on key features. 
