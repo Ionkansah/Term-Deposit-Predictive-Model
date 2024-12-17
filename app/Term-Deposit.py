@@ -56,7 +56,7 @@ st.pyplot(fig)
 
 st.subheader("Interpretation of Results")
 st.markdown("""
-### Model Performance Metrics
+## Model Performance Metrics
 The following metrics were computed for the model's performance:
 
 1. **Precision**: Indicates how many of the predicted "term deposit subscriptions" were correct.  
