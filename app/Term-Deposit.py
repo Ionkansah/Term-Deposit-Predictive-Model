@@ -131,7 +131,7 @@ st.markdown("""
 """)
 
 # Interactive Prediction
-st.subheader("Make a Prediction")
+st.subheader("Make a Prediction. Try it Now!")
 st.markdown("Enter client details to predict the likelihood of term deposit subscription.")
 # Example of user input form
 age = st.number_input("Age", min_value=18, max_value=100, value=35)
