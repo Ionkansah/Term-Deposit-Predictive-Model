@@ -24,8 +24,7 @@ The dataset contains:
 - **Categorical Features**: Job, marital status, education, contact type, etc.
 - **Target Variable**: 'y' (1: Subscription, 0: No Subscription)
 
-The problem is a **binary classification** task that determines the likelihood of subscription based on the given features.  
-Accurately predicting this outcome enables targeted marketing strategies, saving time and resources.
+The problem is a **binary classification** task that determines the likelihood of subscription based on the given features. Accurately predicting this outcome enables targeted marketing strategies, saving time and resources.
 """)
 
 # EDA Section
@@ -55,21 +54,71 @@ ax.set_xlabel("Predicted")
 ax.set_ylabel("Actual")
 st.pyplot(fig)
 
+st.subheader("Interpretation of Results")
 st.markdown("""
-- **Classification Report:**
+### Model Performance Metrics
+The following metrics were computed for the model's performance:
+
+1. **Precision**: Indicates how many of the predicted "term deposit subscriptions" were correct.  
+   - Precision for class '1' (Subscription): **66%**  
+     *This means that 66% of predicted positive cases are actual subscriptions.*
+
+2. **Recall**: Measures how well the model identifies actual subscriptions.  
+   - Recall for class '1' (Subscription): **48%**  
+     *The model correctly identified 48% of actual subscriptions.*  
+     A lower recall suggests that some actual subscriptions are missed.
+
+3. **F1-Score**: The harmonic mean of precision and recall.  
+   - F1-Score for class '1' (Subscription): **56%**  
+     *This combines precision and recall into one balanced measure.*
+
+4. **Accuracy**: **91%**  
+   *The overall model accuracy is high, but this is heavily influenced by the majority class ('No Subscription').*
+
+5. **Macro Average**: The average precision, recall, and F1-score for both classes (unweighted).  
+   - **Macro Precision**: 80%  
+   - **Macro Recall**: 73%  
+   *This provides an average performance across classes.*
+
+6. **Weighted Average**: The average precision, recall, and F1-score weighted by class size.  
+   - **Weighted Precision**: 90%  
+   - **Weighted Recall**: 91%  
+   *This emphasizes performance on the dominant class while accounting for imbalances.*
+
+7. **ROC-AUC Score**: **0.73**  
+   *The ROC-AUC score reflects the model's ability to distinguish between classes. A score of 0.73 indicates moderate performance.*
+
+---
+
+### Key Observations:
+- The model performs well on the majority class ('No Subscription') but struggles with the minority class ('Subscription').
+- Improving recall for subscriptions could enhance the model's ability to capture more true positives.
+- Despite this, the overall accuracy and AUC indicate that the model is reasonably reliable.
 """)
-st.text("""
-              precision    recall  f1-score   support
 
-           0       0.94      0.97      0.95      7303
-           1       0.66      0.48      0.56       935
 
-    accuracy                           0.91      8238
-   macro avg       0.80      0.73      0.75      8238
-weighted avg       0.90      0.91      0.91      8238
-""")
+from sklearn.metrics import classification_report
 
-st.markdown(f"- **ROC AUC Score:** `{0.7252241222382422}`")
+# Mock classification report data (from earlier output)
+report_data = {
+    "Class": ["No Subscription (0)", "Subscription (1)", "Accuracy", "Macro Avg", "Weighted Avg"],
+    "Precision": [0.94, 0.66, "-", 0.80, 0.90],
+    "Recall": [0.97, 0.48, "-", 0.73, 0.91],
+    "F1-Score": [0.95, 0.56, "-", 0.75, 0.91],
+    "Support": [7303, 935, 8238, 8238, 8238]
+}
+
+# Convert to DataFrame
+report_df = pd.DataFrame(report_data)
+
+# Display in Streamlit
+st.subheader("Classification Report")
+st.dataframe(report_df.style.format({
+    "Precision": "{:.2f}",
+    "Recall": "{:.2f}",
+    "F1-Score": "{:.2f}",
+    "Support": "{:.0f}"
+}))
 
 # Insights Section
 st.subheader("Key Insights")
