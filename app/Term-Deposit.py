@@ -9,7 +9,7 @@ import numpy as np
 page_bg_img = '''
 <style>
 .stApp {
-    background-image: url("https://your-image-link.com/background.jpg");
+    background-image: url("https://github.com/Ionkansah/Term-Deposit-Predictive-Model/blob/main/Github%20Designa.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,6 +18,10 @@ page_bg_img = '''
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Sidebar navigation
+st.sidebar.title("Navigation")
+options = st.sidebar.radio("Go to", ["Home", "EDA", "Model Results", "Contact"])
 
 # Load the dataset
 data = pd.read_csv('data/bank-additional-full.csv', sep=';')
