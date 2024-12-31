@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 import numpy as np
 
+# Load the dataset
+data = pd.read_csv('data/bank-additional-full.csv', sep=';')
+
 # Add background image
 page_bg_img = '''
 <style>
